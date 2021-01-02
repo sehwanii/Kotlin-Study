@@ -1,0 +1,71 @@
+package com.example.sayhello
+
+import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        
+        //Collection
+
+        //-------------------------------------------------------------------------
+        //Array
+
+        var students = IntArray(10)
+        var longArray = LongArray(10)
+        var CharArray = CharArray(10)
+        var FloatArray = FloatArray(10)
+        var DoubleArray = DoubleArray(10)
+        var intArray = intArrayOf(1,2,3,4,5,6,7,8,9,10)
+        var stringArray = Array(10,{item->""})
+
+        //--------------------------------------------------------------------------
+        //mutealblelist : 동적할당배열
+
+
+        var list = mutableListOf("Mon","Tue","Wen")
+        list.add("Thu")                                    //==append
+        var variable = list.get(1)                         //해당 값 호출
+        list.set(1,"수정할 값")                             //해당 값 수정
+        list.removeAt(2)                             //해당 값 제거 및 당겨오기
+
+        var emptyMutableList = mutableListOf<Int>()         //빈 리스트 만들기
+        var size = list.size                                //컬랙션 개수 가져오기
+
+        //---------------------------------------------------------------------------
+        //set : 증복 허용 안되는 list
+        // - index로 조회 x
+        // - get함수 지원 x
+
+        var set = mutableSetOf<String>()
+        set.add("JAN")
+        set.add("FEB")
+        set.add("MAR")
+        //set.add("JAN")은 안됨
+
+        Log.d("Collection","Set 전체 출력 = ${set}")//셋 전체 출력
+        set.remove("FEB")                           //셋은 중복이 안되기 때문에 값으로 삭제 가능
+
+        //-------------------------------------------------------------------------------
+        //Map : Key & Value
+
+        var map = mutableMapOf<String, String>()
+        map.put("키1","값1")
+        map.put("키2","값2")
+        map.put("키3","값3")
+
+        var mapvar = map.get("키2")                          //key로 value 호출
+        Log.d("Collection","키2dml rkqtdms ${map.get("키2")}입니다.")
+        map.remove("키2")                                //값 삭제
+        Log.d("Collection","키2dml rkqtdms ${map.get("키2")}입니다.") // 없는 값 호출시 null 출력
+
+        //---------------------------------------------------------------------------------
+        //Immutable COllection
+        //mutableCollection에서 mutable 제거
+
+    }
+}
+
